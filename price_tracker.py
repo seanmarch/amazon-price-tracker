@@ -44,12 +44,9 @@ def get_price(page):
 
 
 def create_list_of_price_logs():
-    data = []
     with open(PRICELOGS, "r") as log_file:
         logs = csv.reader(log_file, delimiter=',')
-        for log in logs:
-            if log:
-                data.append(log)
+        data = [log for log in logs if log]
     return data
 
 
